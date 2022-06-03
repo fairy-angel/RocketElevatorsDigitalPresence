@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>quote.html</title>
+		<meta name="quote" content="" />
+	
+
+		<!-- mobile settings -->
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+		<!-- CORE CSS -->
+		<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		
+		<!-- THEME CSS -->
+		<link href="assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme" />
+	</head>
+
+	<!--
+		AVAILABLE BODY CLASSES:
+		
+		smoothscroll 			= create a browser smooth scroll
+		enable-animation		= enable WOW animations
+
+		bg-grey					= grey background
+		grain-grey				= grey grain background
+		grain-blue				= blue grain background
+		grain-green				= green grain background
+		grain-blue				= blue grain background
+		grain-orange			= orange grain background
+		grain-yellow			= yellow grain background
+		
+		boxed 					= boxed layout
+		pattern1 ... patern11	= pattern background
+		menu-vertical-hide		= hidden, open on click
+		
+		BACKGROUND IMAGE [together with .boxed class]
+		data-background="assets/images/_smarty/boxed_background/1.jpg"
+	-->
+	<body class="smoothscroll enable-animation">
+
+		<!-- wrapper -->
+		<div id="wrapper">
+
+			<!-- 
+				AVAILABLE HEADER CLASSES
+
+				Default nav height: 96px
+				.header-md 		= 70px nav height
+				.header-sm 		= 60px nav height
+
+				.b-0 		= remove bottom border (only with transparent use)
+				.transparent	= transparent header
+				.translucent	= translucent header
+				.sticky			= sticky header
+				.static			= static header
+				.dark			= dark header
+				.bottom			= header on bottom
+				
+				shadow-before-1 = shadow 1 header top
+				shadow-after-1 	= shadow 1 header bottom
+				shadow-before-2 = shadow 2 header top
+				shadow-after-2 	= shadow 2 header bottom
+				shadow-before-3 = shadow 3 header top
+				shadow-after-3 	= shadow 3 header bottom
+
+				.clearfix		= required for mobile menu, do not remove!
+
+				Example Usage:  class="clearfix sticky header-sm transparent b-0"
+			-->
+			<div id="header" class="navbar-toggleable-md sticky clearfix">
+
+				<!-- TOP NAV -->
+				<header id="topNav">
+					<div class="container">
+
+						<!-- Mobile Menu Button -->
+						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+							<i class="fa fa-bars"></i>
+						</button>
+
+						<!-- Logo -->
+						<a class="logo float-left" href="index.html">
+							<img src="https://rocketelevatorslp.com/assets/images/R2.png" alt="" />
+						</a>
+
+						<!-- 
+							Top Nav 
+							
+							AVAILABLE CLASSES:
+							submenu-dark = dark sub menu
+						-->
+						<div class="navbar-collapse collapse float-right nav-main-collapse">
+							<nav class="nav-main">
+
+								<!-- 
+									.nav-onepage
+									Required for onepage navigation links
+									
+									Add .external for an external link!
+								-->
+								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+									<li class="active"><!-- HOME -->
+										<a href="#home-nav">
+											HOME
+										</a>
+									</li>
+									<li><!-- SERVICES -->
+										<a href="#services-nav">
+											SERVICES
+										</a>
+									</li>
+									<li> <!--PORTFOLIO-->
+										<a href="#portfolio-nav">
+											PORTFOLIO
+										</a>
+									</li>
+								
+									<li><!-- NEWS -->
+										<a href="#news-nav">
+											NEWS
+										</a>
+									</li>
+									
+									<li><!-- CLIENTS -->
+										<a href="#clients-nav">
+											CLIENTS
+										</a>
+									</li>
+						
+                                </ul>
+
+							</nav>
+						</div>
+
+					</div>
+				</header>
+				<!-- /Top Nav -->
+
+			</div>
+	<!-- QUOTE FORM -->
+    <section id="quoteform" actions="#" method="post">
+		<div id= "building-type" class="text-center col-md-12">
+			<h1>Get Your Free Quote Today</h1>
+				<p>	<small id="tellbuild" class="form-text text-muted">Tell us what type of building you have.</small></p>
+			<form id="dropdownMenu" >
+				<select id="building-type-options" class="form-control" name="building-type-options" value="building-type-options" >
+					<option id="placeholderOption" placeholder="placeholderOption">Choose Your Builiding Type</option>
+						<option id="residentialOption" value="residentialOption">Residential</option>
+							<option id="commercialOption" value="commercialOption">Commercial</option>
+						<option id="corporateOption" value="corporateOption">Corporate</option>
+					<option id="hybridOption" value="hybridOption">Hybrid</option>
+				</select>
+				
+			</form>
+				
+		</div>
+		<div id="residentialSection" style="display: none">
+			<label for="res-number-of-apartments"> Number of Apartments</label>
+			<input type="number" id="res-number-of-apartments" min=0 value=0 >
+				<label for="res-number-of-floors"> Number of Floors</label>
+				<input type="number" id="res-number-of-floors" min=0 value=0>
+					<label for="res-number-of-basements"> Number of Basements</label>
+					<input type="number" id="res-number-of-basements" min=0 value=0>
+		</div>
+
+
+		<div id="commercialSection" style="display:none">
+			<label for="comm-number-of-floors">Number of Floors</label>
+			<input type="number" id="comm-number-of-floors" min="0" value="0">
+				<label for="comm-number-of-basements">Number of Basements</label>
+				<input type="number" id="comm-number-of-basements"  min="0" value="0">
+					<label for="comm-number-of-companies">Number of Distinct Businesses</label>
+					<input type="number" id="comm-number-of-companies" min="0" value="0">
+						<label for="comm-number-of-parking-spots">Number of Parking Spots</label>
+						<input type="number" id="comm-number-of-parking-spots" min="0" value="0">
+							<label for="comm-number-of-elevators">Number of Elevators</label>
+							<input type="number" id="comm-number-of-elevators" min="0" value="0">	
+		</div>
+		<div id="corporateSection" style="display:none">
+			<label for="corp-number-of-floors">Number of Floors</label>
+			<input type="number" id="corp-number-of-floors"  min="0" value="0">
+				<label for="corp-number-of-basements">Number of Basements</label>
+				<input type="number" id="corp-number-of-basements"  min="0" value="0">
+					<label for="corp-number-of-parking-spots">Number of Parking Spots</label>
+					<input type="number" id="corp-number-of-parking-spots" min="0"  value="0">
+						<label for="corp-number-of-corporations">Number of Separate Tenant Companies</label>
+						<input type="number" id="corp-number-of-corporations"  min="0" value="0">
+							<label for="corp-maximum-occupancy">Maximum Occupancy</label>
+							<input type="number" id="corp-maximum-occupancy" min="0"  value="0">
+						
+		</div>
+
+		<div id="hybridSection" style="display:none">
+			<label for="hyb-number-of-floors">Number of Floors</label>
+			<input type="number" id="hyb-number-of-floors" min="0"  value="0" >
+				<label for="hyb-number-of-basements">Number of Basements</label>
+				<input type="number" id="hyb-number-of-basements" min="0" value="0" >
+					<label for="hyb-number-of-parking-spots">Number of Parking Spots</label>
+					<input type="number" id="hyb-number-of-parking-spots" min="0" value="0" >
+						<label for="hyb-number-of-corporations">Number of Distinct Businesses</label>
+						<input type="number" id="hyb-number-of-corporations"min="0"  value="0" >
+							<label for="hyb-maximum-occupancy">Maximum Occupancy</label>
+							<input type="number" id="hyb-maximum-occupancy" min="0" value="0" >
+								<label for="hyb-business-hours">Business Hours</label>
+								<input type="number" id="hyb-business-hours"min="0"  value="0" >
+		</div>
+<!--QUOTE FORM-->
+
+
+<br>
+<br>					
+<!--SERVICE BUTTONS-->		
+<h2>Quality of Service</h2>
+<small id="tellbuild" class="form-text text-muted">Tell us what type of service you'd like.</small>
+
+<form id="productLineButtons">
+<div id="productLine">
+	<div class="form-check form-check-inline col-sm-2">
+		<label for="standard">Standard</label>
+		<input type="radio" id="standard" name="standard" value="standard" > 	
+	</div>
+
+	<div class="form-check form-check-inline col-sm-2">
+		<label for="premium">Premium</label>
+		<input type="radio" id="premium" name="premium" value="premium"> 
+	</div>
+
+	<div class="form-check form-check-inline col-sm-2">
+		<label  for="excelium">Excelium</label>
+		<input type="radio" id="excelium" name="premium" value="excelium"> 
+	</div>
+</form>
+
+</div>
+<br>
+<br>
+<!--SERVICE BUTTONS-->
+
+<!--RESULTS-->
+<div id="elevator-amount" class="text-left col-md-2">
+	<label for="elevator-amount-input">Amount of Elevators</label>
+	<input id="elevator-amount-input" value=0 type="number" class="form-control" placeholder="000" readonly>
+</div>
+<div id="unit-price" class="text-left col-md-2">
+	<label for="elevator-unit-price"><strong>Elevator Unit Price:</strong></label>
+	<input min="0" id="elevator-unit-price" value=0 type="text" class="form-control" placeholder="$000,000.00" readonly>
+</div>	
+		<form>	
+			<div id="total-elevator-price" class="text-left col-md-2 ">
+				<label for="total-elevator-price">Total Elevator Amount:</label>
+				<input id="total-elevator-price" value=0 type="text" class="form-control " placeholder="$000,000.00" readonly>
+			</div>
+		</form>
+		
+			
+			<form>
+				<div id="installation-fees" class="text-left col-md-2 ">
+					<label for="installation-fees">Installation Fees:</label>
+					<input id="installation-fees" value="0" type="text" class="form-control" placeholder="$000,000.00" readonly>
+				</div>
+			</form>
+	
+	
+				<form>
+					<div id="final-price" class="text-left col-md-2 ">
+						<label class="" for="final-price">Total Cost:</label>
+						<input id="final-price" value=0" type="text" class="form-control" placeholder="$000,000.00" readonly>
+					</div>	
+				</form>
+					</div>
+<!--RESULTS-->
+		
+<!-- CONTACT -->
+<span id="contact-nav"></span>
+<section id="contact">
+	<div class="container">
+		<span id="contactus">
+		<header class="text-center mb-60">
+			<h2>Contact Us</h2>
+			<p class="lead font-lato"> For more information, scroll a little</p>
+			<hr />
+		</header>
+	</span>
+
+	<div class="row">
+			<div class="col-md-8 col-sm-8">
+		<span id="getquote">
+		   <h3>Drop us a line... </h3>
+		 
+				 <form [...]>
+			  <fieldset>
+						  <div class="row">
+							   <div class="col-md-4">
+									<label >First Name *</label>
+									<input id="fname" >
+							   </div>
+							   <div class="col-md-4">
+								<label >Last Name *</label>
+								<input id="lname" >
+						   </div>
+							   <div class="col-md-4">
+									 <label >E-mail *</label>
+									 <input id="email" >
+							   </div>
+							   <div class="col-md-4">
+									<label >Phone *</label>
+									<input id="phone" >
+							   </div>
+							   <div class="col-md-4">
+								<label >Message *</label>
+								<input id="message" >
+							</span>
+						 </div>
+						  </div>
+						  
+					 </fieldset>
+			  
+<!--end of new code-->
+
+
+		<div class="row">
+
+			<!-- FORM -->
+			<div class="col-md-8 col-sm-8">
+
+				<h3>or just say <strong><em>Hello!</em></strong></h3>
+
+				
+				<!--
+					MESSAGES
+					
+						How it works?
+						The form data is posted to php/contact.php where the fields are verified!
+						php.contact.php will redirect back here and will add a hash to the end of the URL:
+							#alert_success 		= email sent
+							#alert_failed		= email not sent - internal server error (404 error or SMTP problem)
+							#alert_mandatory	= email not sent - required fields empty
+							Hashes are handled by assets/js/contact.js
+
+						Form data: required to be an array. Example:
+							contact[email][required]  WHERE: [email] = field name, [required] = only if this field is required (PHP will check this)
+							Also, add `required` to input fields if is a mandatory field. 
+							Example: <input required type="email" value="" class="form-control" name="contact[email][required]">
+
+						PLEASE NOTE: IF YOU WANT TO ADD OR REMOVE FIELDS (EXCEPT CAPTCHA), JUST EDIT THE HTML CODE, NO NEED TO EDIT php/contact.php or javascript
+									 ALL FIELDS ARE DETECTED DINAMICALY BY THE PHP
+
+						WARNING! Do not change the `email` and `name`!
+									contact[name][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
+									contact[email][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
+				-->
+
+				<!-- Alert Success -->
+				<div id="alert_success" class="alert alert-success mb-30">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<strong>Thank You!</strong> Your message successfully sent!
+				</div><!-- /Alert Success -->
+
+
+				<!-- Alert Failed -->
+				<div id="alert_failed" class="alert alert-danger mb-30">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<strong>[SMTP] Error!</strong> Internal server error!
+				</div><!-- /Alert Failed -->
+
+
+				<!-- Alert Mandatory -->
+				<div id="alert_mandatory" class="alert alert-danger mb-30">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<strong>Sorry!</strong> You need to complete all mandatory (*) fields!
+				</div><!-- /Alert Mandatory -->
+
+
+				<form action="php/contact.php" method="post" enctype="multipart/form-data">
+					<fieldset>
+						<input type="hidden" name="action" value="contact_send" />
+
+						<div class="row">
+								<div class="col-md-4">
+									<label for="contact:name">Full Name *</label>
+									<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+								</div>
+								<div class="col-md-4">
+									<label for="contact:email">E-mail Address *</label>
+									<input required type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
+								</div>
+								<div class="col-md-4">
+									<label for="contact:phone">Phone</label>
+									<input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
+								</div>
+						</div>
+						<div class="row">
+								<div class="col-md-8">
+									<label for="contact:subject">Subject *</label>
+									<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:subject">
+								</div>
+								<div class="col-md-4">
+									<label for="contact_department">Department</label>
+									<select class="form-control pointer" name="contact[department]">
+										<option value="">--- Select ---</option>
+										<option value="Marketing">Marketing</option>
+										<option value="Webdesign">Webdesign</option>
+										<option value="Architecture">Architecture</option>
+									</select>
+								</div>
+						</div>
+						<div class="row">
+								<div class="col-md-12">
+									<label for="contact:message">Message *</label>
+									<textarea required maxlength="10000" rows="8" class="form-control" name="contact[message]" id="contact:message"></textarea>
+								</div>
+						</div>
+						<div class="row">
+								<div class="col-md-12">
+									<label for="contact:attachment">File Attachment</label>
+
+									<!-- custom file upload -->
+									<input class="custom-file-upload" type="file" id="file" name="contact[attachment]" id="contact:attachment" data-btn-text="Select a File" />
+									<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
+
+								</div>
+						</div>
+
+					</fieldset>
+
+					<div class="row">
+						<div class="col-md-12">
+							<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
+						</div>
+					</div>
+				</form>
+
+			</div>
+			<!-- /FORM -->
+
+
+			<!-- INFO -->
+			<div class="col-md-4 col-sm-4">
+
+				<h2>Visit Us</h2>
+
+				<!-- 
+				Available heights
+					h-100
+					h-150
+					h-200
+					h-250
+					h-300
+					h-350
+					h-400
+					h-450
+					h-500
+					h-550
+					h-600
+				-->
+				<div id="map2" class="h-400 grayscale"></div>
+
+				<hr />
+
+				<p>
+					<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> 136 4th St N suite 201, St. Petersburg, FL 33701, United States</span>
+					<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:1800-555-1234"> (418) 555-1234</a></span>
+					<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:mail@yourdomain.com">info@codeboxx.biz</a></span>
+				</p>
+
+			</div>
+			<!-- /INFO -->
+
+		</div>
+
+	</div>
+</section>
+<!-- /CONTACT -->
+
+
+
+
+<!-- FOOTER -->
+<footer id="footer">
+	<div class="container">
+
+
+		<div class="row">
+
+			<!-- col #1 -->
+			<div class="col-md-8">
+
+				<h3 class="letter-spacing-1">WHY US?</h3>
+
+				<!-- Small Description -->
+				<p>
+					We are certain that we create the most innovative and reliable products on the market. Contact us today for any questions you might have.
+
+				</p>
+				<h2>(418) 555-1234</h2>
+			</div>
+			<!-- /col #1 -->
+
+			<!-- col #2 -->
+			<div class="col-md-4">
+				<h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
+
+				<!-- Newsletter Form -->
+				<p>Subscribe to Our Newsletter to get Important News & Offers</p>
+
+				<form class="validate" action="php/newsletter.php" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+						<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
+						<span class="input-group-btn">
+							<button class="btn btn-success" type="submit">Subscribe</button>
+						</span>
+					</div>
+				</form>
+				<!-- /Newsletter Form -->
+
+
+			</div>
+			<!-- /col #2 -->
+
+		</div>
+
+
+	</div>
+
+	<div class="copyright">
+		<div class="container">
+			<ul class="float-right m-0 list-inline mobile-block">
+				<li><a href="#">Terms &amp; Conditions</a></li>
+				<li>&bull;</li>
+				<li><a href="#">Privacy</a></li>
+			</ul>
+			&copy; All Rights Reserved, Company LTD
+		</div>
+	</div>
+
+</footer>
+<!-- /FOOTER -->
+
+</div>
+<!-- /wrapper -->
+
+
+<!-- SCROLL TO TOP -->
+<a href="#" id="toTop"></a>
+
+
+<!-- PRELOADER -->
+<div id="preloader">
+<div class="inner">
+	<span class="loader"></span>
+</div>
+</div><!-- /PRELOADER -->
+
+
+
+<!--MY JAVA FILE-->
+<script src="jsquote.js"></script>
+<!--MY JAVA FILE-->
+
+<!-- JAVASCRIPT FILES -->
+
+<script>var plugin_path = 'assets/plugins/';</script>
+<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+
+<script src="assets/js/scripts.js"></script>
+
+<!-- STYLESWITCHER - REMOVE -->
+<script async src="demo_files/styleswitcher/styleswitcher.js"></script>
+
+<!-- REVOLUTION SLIDER -->
+<script src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="assets/js/view/demo.revolution_slider.js"></script>
+
+<!-- PAGELEVEL SCRIPTS -->
+<script src="assets/js/contact.js"></script>
+
+<!-- 
+GMAP.JS 
+http://hpneo.github.io/gmaps/
+-->
+<script src="//maps.google.com/maps/api/js?key=AIzaSyCqCn84CgZN6o1Xc3P4dM657HIxkX3jzPY"></script>
+<script src="assets/plugins/gmaps.js"></script>
+<script>
+
+jQuery(document).ready(function(){
+
+	/**
+		@BASIC GOOGLE MAP
+	**/
+	var map2 = new GMaps({
+		div: '#map2',
+		lat: -12.043333,
+		lng: -77.028333,
+		scrollwheel: false
+	});
+
+	var marker = map2.addMarker({
+		lat: -12.043333,
+		lng: -77.028333,
+		title: 'Company, Inc.'
+	});
+
+});
+
+</script>
+</body>
+</html>
