@@ -166,17 +166,17 @@
 		</div>
 		<div id="residentialSection" style="display: none">
 			<label for="res-number-of-apartments"> Number of Apartments</label>
-			<input type="number" id="res-number-of-apartments" min=0 value=0 >
+			<input type="number" id="res-number-of-apartments" min="0" value="0" >
 				<label for="res-number-of-floors"> Number of Floors</label>
-				<input type="number" id="res-number-of-floors" min=0 value=0>
+				<input type="number" id="res-number-of-floors" min="1" value="1">
 					<label for="res-number-of-basements"> Number of Basements</label>
-					<input type="number" id="res-number-of-basements" min=0 value=0>
+					<input type="number" id="res-number-of-basements" min="0" value="0">
 		</div>
 
 
 		<div id="commercialSection" style="display:none">
 			<label for="comm-number-of-floors">Number of Floors</label>
-			<input type="number" id="comm-number-of-floors" min="0" value="0">
+			<input type="number" id="comm-number-of-floors" min="1" value="1">
 				<label for="comm-number-of-basements">Number of Basements</label>
 				<input type="number" id="comm-number-of-basements"  min="0" value="0">
 					<label for="comm-number-of-companies">Number of Distinct Businesses</label>
@@ -188,7 +188,7 @@
 		</div>
 		<div id="corporateSection" style="display:none">
 			<label for="corp-number-of-floors">Number of Floors</label>
-			<input type="number" id="corp-number-of-floors"  min="0" value="0">
+			<input type="number" id="corp-number-of-floors"  min="1" value="1">
 				<label for="corp-number-of-basements">Number of Basements</label>
 				<input type="number" id="corp-number-of-basements"  min="0" value="0">
 					<label for="corp-number-of-parking-spots">Number of Parking Spots</label>
@@ -202,7 +202,7 @@
 
 		<div id="hybridSection" style="display:none">
 			<label for="hyb-number-of-floors">Number of Floors</label>
-			<input type="number" id="hyb-number-of-floors" min="0"  value="0" >
+			<input type="number" id="hyb-number-of-floors" min="1"  value="1" >
 				<label for="hyb-number-of-basements">Number of Basements</label>
 				<input type="number" id="hyb-number-of-basements" min="0" value="0" >
 					<label for="hyb-number-of-parking-spots">Number of Parking Spots</label>
@@ -227,17 +227,17 @@
 <div id="productLine">
 	<div class="form-check form-check-inline col-sm-2">
 		<label for="standard">Standard</label>
-		<input type="radio" id="standard" name="standard" value="standard" > 	
+		<input type="radio" id="standard" name="productLine" value="standard" checked > 	
 	</div>
 
 	<div class="form-check form-check-inline col-sm-2">
 		<label for="premium">Premium</label>
-		<input type="radio" id="premium" name="premium" value="premium"> 
+		<input type="radio" id="premium" name="productLine" value="premium"> 
 	</div>
 
 	<div class="form-check form-check-inline col-sm-2">
 		<label  for="excelium">Excelium</label>
-		<input type="radio" id="excelium" name="premium" value="excelium"> 
+		<input type="radio" id="excelium" name="productLine" value="excelium"> 
 	</div>
 </form>
 
@@ -257,24 +257,24 @@
 </div>	
 		<form>	
 			<div id="total-elevator-price" class="text-left col-md-2 ">
-				<label for="total-elevator-price">Total Elevator Amount:</label>
-				<input id="total-elevator-price" value=0 type="text" class="form-control " placeholder="$000,000.00" readonly>
+				<label for="total-elevator-cost">Total Elevator Amount:</label>
+				<input id="total-elevator-cost" value=0 type="text" class="form-control " placeholder="$000,000.00" readonly>
 			</div>
 		</form>
 		
 			
 			<form>
-				<div id="installation-fees" class="text-left col-md-2 ">
+				<div id="installation-fee" class="text-left col-md-2 ">
 					<label for="installation-fees">Installation Fees:</label>
-					<input id="installation-fees" value="0" type="text" class="form-control" placeholder="$000,000.00" readonly>
+					<input id="installation-fees" value=0 type="text" class="form-control" placeholder="$000,000.00" readonly>
 				</div>
 			</form>
 	
 	
 				<form>
 					<div id="final-price" class="text-left col-md-2 ">
-						<label class="" for="final-price">Total Cost:</label>
-						<input id="final-price" value=0" type="text" class="form-control" placeholder="$000,000.00" readonly>
+						<label class="" for="final-prices">Total Cost:</label>
+						<input id="final-prices" value=0 type="text" class="form-control" placeholder="$000,000.00" readonly>
 					</div>	
 				</form>
 					</div>
