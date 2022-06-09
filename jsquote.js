@@ -30,23 +30,23 @@ let inputHybridIds=[
     "hyb-business-hours"       
 ]
 for (let i=0; i < inputResIds.length; i++){
-    document.getElementById(inputResIds[i]).addEventListener("change",calculate_residential_elevators);
+    document.getElementById(inputResIds[i]).addEventListener("input",calculate_residential_elevators);
 }
 
 for (let i=0; i < inputCommIds.length; i++){
-    document.getElementById(inputCommIds[i]).addEventListener("change",calculate_commercial_elevators);
+    document.getElementById(inputCommIds[i]).addEventListener("input",calculate_commercial_elevators);
 }
 
 for (let i=0; i < inputCorpIds.length; i++){
-    document.getElementById(inputCorpIds[i]).addEventListener("change", calculate_corporhybrid_elevators);
+    document.getElementById(inputCorpIds[i]).addEventListener("input", calculate_corporhybrid_elevators);
 }
 
 for (let i=0; i < inputHybridIds.length; i++){
-    document.getElementById(inputHybridIds[i]).addEventListener("change",calculate_corporhybrid_elevators);
+    document.getElementById(inputHybridIds[i]).addEventListener("input",calculate_corporhybrid_elevators);
 }
 
 
-document.getElementById("building-type-options").addEventListener("change",dropDown)
+document.getElementById("building-type-options").addEventListener("input",dropDown)
 
 
 document.getElementById("standard").addEventListener("click",recalculate) 
