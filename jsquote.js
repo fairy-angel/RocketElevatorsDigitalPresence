@@ -57,6 +57,14 @@ document.getElementById("excelium").addEventListener("click",recalculate)
 
 //CALCULATORS
 
+function recalculate(){
+    unitPriceCalculator()
+    elevatorCostCalculator()
+    installFeeCalculator()
+    totalCostCalculator()
+}
+
+
 function dropDown(){
     let select = document.getElementById("building-type-options");
     let buildingType = select.options[select.selectedIndex].value;
@@ -89,18 +97,19 @@ function dropDown(){
 }
 
 function calculate_residential_elevators(){
-    let apartmentCount = document.getElementById("res-number-of-apartments").value;
+
     let floorCount = document.getElementById("res-number-of-floors").value;
-    let columnCount = Math.ceil(floorCount/20);
-    let average_apt_per_floor = apartmentCount / floorCount;
-    let elevatorTotal = Math.floor(average_apt_per_floor / 6); 
-    console.log()
+        let apartmentCount = document.getElementById("res-number-of-apartments").value;
 
-        elevatorTotal == elevatorTotal * columnCount;
-
+    let average_apt_per_floor = Math.ceil(Number(apartmentCount.value) / Number(floorCount.value));
+    let elevator_shaft = Math.ceil(average_apt_per_floor) / 6;
+    let columnCount = Math.ceil(Number(floorCount.value) / 20);
+    let results = elevator_shaft * columnCount;
+    let elevatorTotal = results;
 
         document.getElementById('elevator-amount-input').setAttribute('value',elevatorTotal);
         recalculate()
+
     }
 
  function calculate_commercial_elevators(){
@@ -112,12 +121,21 @@ function calculate_residential_elevators(){
  }
 
  function calculate_corporhybrid_elevators(){
-        let buildingType = select.options[select.selectedIndex].value;
+
+        let buildingType 
         let floorCount  
         let basementCount 
-        let occupantsPerFloor 
-        
-        if (buildingType== "corporateOption"){
+        let occupantsPerFloor
+         
+        let totalFloors = basementCount + floorCount;
+        let totalOccupants = (totalFloors + basementCount) * occupantsPerFloor;
+        let elevatorColumns = Math.ceil(totalFloors + basementCount) / 20;
+        let elevatorCount = Math.ceil(totalOccupants / 1000);
+        let elevatorsPerColumn = Math.ceil(elevatorCount / elevatorColumns);
+        let elevatorTotal = elevatorColumns * elevatorsPerColumn;
+
+
+        if (buildingType == "corporateOption"){
             floorCount = document.getElementById('corp-number-of-floors').value;
             basementCount = document.getElementById('corp-number-of-basements').value;
             occupantsPerFloor = document.getElementById('corp-maximum-occupancy').value;
@@ -129,14 +147,6 @@ function calculate_residential_elevators(){
             occupantsPerFloor = document.getElementById('hyb-maximum-occupancy').value;
 
         }
-
-        let totalFloors = basementCount + floorCount
-        let totalOccupants = totalFloors * occupantsPerFloor
-        let elevatorColumns = totalFloors / 20
-        let elevatorCount = totalOccupants / 1000
-        let elevatorsPerColumn = elevatorCount / elevatorColumns
-        let elevatorTotal = elevatorColumns * elevatorsPerColumn
-
         document.getElementById('elevator-amount-input').setAttribute('value',elevatorTotal);
         recalculate()
         //number of occupants + basements = total occupants
@@ -144,7 +154,6 @@ function calculate_residential_elevators(){
         //number of floors + basements/20 = number elevator columns
         //number of elevators / number of columns = number of elevators per column
         //total number of elevators=number of elevators per column * number of columns
-        
 
    
  }
@@ -221,12 +230,4 @@ function totalCostCalculator(){
 
 }
 
-
-function recalculate(){
-    unitPriceCalculator()
-    elevatorCostCalculator()
-    installFeeCalculator()
-    totalCostCalculator()
-
-}
 //TOTAL COST
