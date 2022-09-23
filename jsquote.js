@@ -107,7 +107,7 @@ function calculate_residential_elevators(){
     let results = elevator_shaft * columnCount;
     let elevatorTotal = results;
 
-        document.getElementById('elevator-amount-input').setAttribute('value',elevatorTotal);
+        document.getElementById('elevatorAmountInput').setAttribute('value',elevatorTotal);
         recalculate()
 
     }
@@ -116,7 +116,7 @@ function calculate_residential_elevators(){
 
        let elevatorTotal = document.getElementById('comm-number-of-elevators').value;
 
-        document.getElementById('elevator-amount-input').setAttribute('value',elevatorTotal);
+        document.getElementById('elevatorAmountInput').setAttribute('value',elevatorTotal);
         recalculate()
  }
 
@@ -147,7 +147,7 @@ function calculate_residential_elevators(){
             occupantsPerFloor = document.getElementById('hyb-maximum-occupancy').value;
 
         }
-        document.getElementById('elevator-amount-input').setAttribute('value',elevatorTotal);
+        document.getElementById('elevatorAmountInput').setAttribute('value',elevatorTotal);
         recalculate()
         //number of occupants + basements = total occupants
         //number of elevators = number of occupants / 1000
@@ -159,7 +159,7 @@ function calculate_residential_elevators(){
  }
 //CALCULATORS 
 
- //document.getElementById('elevator-amount-input').value;
+ //document.getElementById('elevatorAmountInput').value;
 
 
  //UNIT PRICE BUTTONS
@@ -169,13 +169,13 @@ function unitPriceCalculator(){
     let premiumPrice = 12345
     let exceliumPrice = 15400
     if(document.getElementById("standard").checked){
-    document.getElementById("elevator-unit-price").setAttribute('value',standardPrice); 
+    document.getElementById("elevatorUnitPrice").setAttribute('value',standardPrice); 
     }
     else if(document.getElementById("premium").checked){
-        document.getElementById("elevator-unit-price").setAttribute('value',premiumPrice); 
+        document.getElementById("elevatorUnitPrice").setAttribute('value',premiumPrice); 
      }
     else if(document.getElementById("excelium").checked){
-        document.getElementById("elevator-unit-price").setAttribute('value',exceliumPrice); 
+        document.getElementById("elevatorUnitPrice").setAttribute('value',exceliumPrice); 
      }
 
 }
@@ -185,10 +185,10 @@ function unitPriceCalculator(){
 // ELEVATOR AMOUNT
 
     function elevatorCostCalculator(){
-        let elevatorCount = document.getElementById('elevator-amount-input').value;
-        let elevatorUnitPrice = document.getElementById("elevator-unit-price").value;
+        let elevatorCount = document.getElementById('elevatorAmountInput').value;
+        let elevatorUnitPrice = document.getElementById("elevatorUnitPrice").value;
         let totalElevatorCost = elevatorCount * elevatorUnitPrice; 
-        document.getElementById("total-elevator-cost").setAttribute('value',totalElevatorCost); 
+        document.getElementById("elevatorAmount").setAttribute('value',totalElevatorCost); 
     }
 // ELEVATOR AMOUNT
 
@@ -198,7 +198,7 @@ function installFeeCalculator(){
     let standardFee = 0.10
     let premiumFee = 0.13
     let exceliumFee = 0.16
-    let totalElevatorCost = document.getElementById("total-elevator-cost").value;
+    let totalElevatorCost = document.getElementById("elevatorAmount").value;
     let totalFee 
     
     
@@ -215,18 +215,18 @@ function installFeeCalculator(){
         totalFee = totalElevatorCost * exceliumFee
 
      }
-      document.getElementById("installation-fees").setAttribute('value',totalFee);
+      document.getElementById("installationFees").setAttribute('value',totalFee);
 }
 //INSTALLATION FEES
 
 
 //TOTAL COST
 function totalCostCalculator(){
-    let totalElevatorPrice = document.getElementById("total-elevator-cost").value;
-    let totalInstallFees = document.getElementById("installation-fees").value;
-    let finalPrice = parseFloat(totalElevatorPrice) + parseFloat(totalInstallFees);
+    let totalElevatorPrice = document.getElementById("elevatorAmount").value;
+    let totalInstallFees = document.getElementById("installationFees").value;
+    let totalCost = parseFloat(totalElevatorPrice) + parseFloat(totalInstallFees);
   
-    document.getElementById("final-prices").setAttribute('value',finalPrice);
+    document.getElementById("totalCost").setAttribute('value',totalCost);
 
 }
 
