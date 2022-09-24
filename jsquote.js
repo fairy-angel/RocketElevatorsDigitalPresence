@@ -188,7 +188,7 @@ function unitPriceCalculator(){
         let elevatorCount = document.getElementById('elevatorAmountInput').value;
         let elevatorUnitPrice = document.getElementById("elevatorUnitPrice").value;
         let totalElevatorCost = elevatorCount * elevatorUnitPrice; 
-        document.getElementById("elevatorAmount").setAttribute('value',totalElevatorCost); 
+        document.getElementById("totalElevatorAmount").setAttribute('value',totalElevatorCost); 
     }
 // ELEVATOR AMOUNT
 
@@ -198,7 +198,7 @@ function installFeeCalculator(){
     let standardFee = 0.10
     let premiumFee = 0.13
     let exceliumFee = 0.16
-    let totalElevatorCost = document.getElementById("elevatorAmount").value;
+    let totalElevatorCost = document.getElementById("totalElevatorAmount").value;
     let totalFee 
     
     
@@ -222,7 +222,7 @@ function installFeeCalculator(){
 
 //TOTAL COST
 function totalCostCalculator(){
-    let totalElevatorPrice = document.getElementById("elevatorAmount").value;
+    let totalElevatorPrice = document.getElementById("totalElevatorAmount").value;
     let totalInstallFees = document.getElementById("installationFees").value;
     let totalCost = parseFloat(totalElevatorPrice) + parseFloat(totalInstallFees);
   
@@ -231,3 +231,4 @@ function totalCostCalculator(){
 }
 
 //TOTAL COST
+
