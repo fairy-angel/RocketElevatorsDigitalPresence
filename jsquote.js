@@ -225,6 +225,9 @@ function installFeeCalculator(){
      }
       // document.getElementById("installationFees").setAttribute('value',totalFee);
       document.getElementById("installFeesLabel").innerHTML = `${totalFee*100}%`;
+      document.getElementById("installFeesLabel").value = totalFee;
+
+
 }
 //INSTALLATION FEES
 
@@ -233,7 +236,14 @@ function installFeeCalculator(){
 function totalCostCalculator(){
     let totalElevatorPrice = document.getElementById("totalElevatorAmount").value;
     let totalInstallFees = document.getElementById("installFeesLabel").value;
-    let totalCost = parseFloat(totalElevatorPrice) + parseFloat(totalInstallFees);
-    document.getElementById("totalCostLabel").setAttribute('value',totalCost);
+    let totalCost = +totalElevatorPrice * +totalInstallFees;
+    // document.getElementById("totalCostLabel").setAttribute('value',totalCost);
+    document.getElementById("totalCostLabel").innerHTML = `$${totalCost}`;
+    document.getElementById("totalCostLabel").value = totalCost;
+    console.log(totalElevatorPrice, totalInstallFees, totalCost);
+
 }
 //TOTAL COST
+
+// JS number 2 decimalpoints lookup
+// 
