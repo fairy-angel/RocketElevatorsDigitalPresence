@@ -264,27 +264,26 @@
 		
 			<!-- todo change installfee and  total cost to output -->
 			<form>
-				<div>				
-
-					<label class="form-control" for="installFeesLabel" id="installFeesLabel">					
+				<div class="text-left col-md-2" id="installFeesLabel">				
+					<label >					
 						Installation Fees:
 					</label>
-					<p id="installFee" class="text-left col-md-2 ">
-					</p>
+					<output id="installFee" min="0" value=0 type="number" class="form-control" placeholder="$000,000.00" readonly>
 			</div>
 			</form>
-			<div>	
-				<form>
-					<label class="form-control" for="totalCostLabel" id="totalCostLabel">
+
+			<form>
+			<div class="text-left col-md-2 " id="totalCostLabel">	
+					<label >
 						Total Cost:
 					</label>
+					<output id="totalCost" min="0" value=0 type="number" class="form-control" placeholder="$000,000.00" readonly>					
 
-					<p id="totalCost" class="text-left col-md-2 ">					
+						<!-- <input id="totalCost" value=0 type="number" class="form-control" placeholder="$000,000.00" readonly> -->	
+					
+			</div>
+		</form>
 
-						<!-- <input id="totalCost" value=0 type="number" class="form-control" placeholder="$000,000.00" readonly> -->
-					</p>	
-				</div>
-				</form>
 					</div>
 <!--RESULTS-->
 		

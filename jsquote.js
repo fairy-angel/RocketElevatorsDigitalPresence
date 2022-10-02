@@ -156,27 +156,37 @@ function calculate_residential_elevators(){
 //CALCULATORS 
 
  //USD FORMATTER
-
+ 
  let usd = new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "USD"
+    currency: "USD",
  });
 
  //UNIT PRICE BUTTONS
 
 function unitPriceCalculator(){
-    let standardPrice = 7565.00
-    // standardPrice = usd.format(standardPrice)
+    let standardPrice = 7565
+    let usdStandardPrice= usd.format(standardPrice);
+
     let premiumPrice = 12345
-    let exceliumPrice = 15400.00
+    let usdPremiumPrice= usd.format(premiumPrice);
+
+    let exceliumPrice = 15400
+    let usdExceliumPrice= usd.format(exceliumPrice);
+    
     if(document.getElementById("standard").checked){
-    document.getElementById("elevatorUnitPrice").setAttribute('value',standardPrice); 
+    // document.getElementById("elevatorUnitPrice").setAttribute('innerHTML',usdStandardPrice);
+    // document.getElementById("elevatorUnitPrice").setAttribute('value', standardPrice);
+    document.getElementById("elevatorUnitPrice").innerHTML = parseFloat(usdStandardPrice).toFixed(2);
+    document.getElementById("elevatorUnitPrice").value = parseFloat(standardPrice).toFixed(2);
     }
     else if(document.getElementById("premium").checked){
-        document.getElementById("elevatorUnitPrice").setAttribute('value',premiumPrice); 
+        document.getElementById("elevatorUnitPrice").innerHTML = parseFloat(usdPremiumPrice).toFixed(2);
+        document.getElementById("elevatorUnitPrice").value = parseFloat(premiumPrice).toFixed(2);
      }
     else if(document.getElementById("excelium").checked){
-        document.getElementById("elevatorUnitPrice").setAttribute('value',exceliumPrice); 
+        document.getElementById("elevatorUnitPrice").innerHTML = parseFloat(usdExceliumPrice).toFixed(2);
+        document.getElementById("elevatorUnitPrice").value = parseFloat(exceliumPrice).toFixed(2);
      }
 
 }
@@ -188,8 +198,10 @@ function unitPriceCalculator(){
     function elevatorCostCalculator(){
         let elevatorCount = document.getElementById('elevatorAmountInput').value;
         let elevatorUnitPrice = document.getElementById("elevatorUnitPrice").value;
-
+        let usdElevatorUnitPrice = usd.format(elevatorUnitPrice);
+                    
         let totalElevatorCost = elevatorCount * elevatorUnitPrice; 
+        document.getElementById("totalElevatorAmount").setAttribute('innerHTML', usdElevatorUnitPrice);
         document.getElementById("totalElevatorAmount").setAttribute('value',totalElevatorCost); 
     }
 // // ELEVATOR AMOUNT
@@ -221,13 +233,11 @@ function installFeeCalculator(){
         totalFee = premiumFee
      }
     else if(document.getElementById("excelium").checked){
-        totalFee = exceliumFee
+        totalFee = exceliumFee 
      }
       // document.getElementById("installationFees").setAttribute('value',totalFee);
-      document.getElementById("installFeesLabel").innerHTML = `${totalFee*100}%`;
-      document.getElementById("installFeesLabel").value = totalFee;
-
-
+      document.getElementById("installFee").innerHTML = `${totalFee*100}%`;
+      document.getElementById("installFee").value = totalFee;
 }
 //INSTALLATION FEES
 
@@ -235,13 +245,13 @@ function installFeeCalculator(){
 //TOTAL COST
 function totalCostCalculator(){
     let totalElevatorPrice = document.getElementById("totalElevatorAmount").value;
-    let totalInstallFees = document.getElementById("installFeesLabel").value;
+    let totalInstallFees = document.getElementById("installFee").value;
     let totalCost = +totalElevatorPrice * +totalInstallFees;
     // document.getElementById("totalCostLabel").setAttribute('value',totalCost);
-    document.getElementById("totalCostLabel").innerHTML = `$${totalCost}`;
-    document.getElementById("totalCostLabel").value = totalCost;
-    console.log(totalElevatorPrice, totalInstallFees, totalCost);
+    document.getElementById("totalElevatorAmount").innerHTML = `$${totalElevatorPrice}`;
 
+    document.getElementById("totalCost").innerHTML = `$${totalCost}`;
+    document.getElementById("totalCost").value = parseFloat(totalCost).toFixed(2);
 }
 //TOTAL COST
 
