@@ -57,6 +57,13 @@ document.getElementById("excelium").addEventListener("click",recalculate)
 
 // EVENT LISTENERS
 
+ //USD FORMATTER
+ 
+ let usd = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+ });
+
 //CALCULATORS
 
 function recalculate(){
@@ -106,10 +113,12 @@ function calculate_residential_elevators(){
     let elevator_shaft = Math.ceil(average_apt_per_floor) / 6;
     let columnCount = Math.ceil(Number(floorCount.value) / 20);
     let results = elevator_shaft * columnCount;
-    let elevatorTotal = results;
+    let elevatorTotal = usd.format(results);
 
+        document.getElementById('elevatorAmountInput').setAttribute('innerHTML', elevatorTotal);
         document.getElementById('elevatorAmountInput').setAttribute('value',elevatorTotal);
-        recalculate()
+
+      recalculate()
 
     }
 
@@ -155,12 +164,6 @@ function calculate_residential_elevators(){
  }
 //CALCULATORS 
 
- //USD FORMATTER
- 
- let usd = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
- });
 
  //UNIT PRICE BUTTONS
 
