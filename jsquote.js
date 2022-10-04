@@ -57,6 +57,13 @@ document.getElementById("excelium").addEventListener("click",recalculate)
 
 // EVENT LISTENERS
 
+ //USD FORMATTER
+ 
+ let usd = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+ });
+
 //CALCULATORS
 
 function recalculate(){
@@ -106,10 +113,12 @@ function calculate_residential_elevators(){
     let elevator_shaft = Math.ceil(average_apt_per_floor) / 6;
     let columnCount = Math.ceil(Number(floorCount.value) / 20);
     let results = elevator_shaft * columnCount;
-    let elevatorTotal = results;
+    let elevatorTotal = usd.format(results);
 
+        document.getElementById('elevatorAmountInput').setAttribute('innerHTML', elevatorTotal);
         document.getElementById('elevatorAmountInput').setAttribute('value',elevatorTotal);
-        recalculate()
+
+      recalculate()
 
     }
 
@@ -155,28 +164,47 @@ function calculate_residential_elevators(){
  }
 //CALCULATORS 
 
+<<<<<<< HEAD
  //USD FORMATTER
 
  let usd = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",    
  });
+=======
+>>>>>>> 61b870e3ed23643a4f199ba7cd3638e3d6656a39
 
  //UNIT PRICE BUTTONS
 
 function unitPriceCalculator(){
     let standardPrice = 7565
+<<<<<<< HEAD
     // standardPrice = usd.format(standardPrice)
     let premiumPrice = 12345
     let exceliumPrice = 15400
+=======
+    let usdStandardPrice= usd.format(standardPrice);
+
+    let premiumPrice = 12345
+    let usdPremiumPrice= usd.format(premiumPrice);
+
+    let exceliumPrice = 15400
+    let usdExceliumPrice= usd.format(exceliumPrice);
+    
+>>>>>>> 61b870e3ed23643a4f199ba7cd3638e3d6656a39
     if(document.getElementById("standard").checked){
-    document.getElementById("elevatorUnitPrice").setAttribute('value',standardPrice); 
+    // document.getElementById("elevatorUnitPrice").setAttribute('innerHTML',usdStandardPrice);
+    // document.getElementById("elevatorUnitPrice").setAttribute('value', standardPrice);
+    document.getElementById("elevatorUnitPrice").innerHTML = parseFloat(usdStandardPrice).toFixed(2);
+    document.getElementById("elevatorUnitPrice").value = parseFloat(standardPrice).toFixed(2);
     }
     else if(document.getElementById("premium").checked){
-        document.getElementById("elevatorUnitPrice").setAttribute('value',premiumPrice); 
+        document.getElementById("elevatorUnitPrice").innerHTML = parseFloat(usdPremiumPrice).toFixed(2);
+        document.getElementById("elevatorUnitPrice").value = parseFloat(premiumPrice).toFixed(2);
      }
     else if(document.getElementById("excelium").checked){
-        document.getElementById("elevatorUnitPrice").setAttribute('value',exceliumPrice); 
+        document.getElementById("elevatorUnitPrice").innerHTML = parseFloat(usdExceliumPrice).toFixed(2);
+        document.getElementById("elevatorUnitPrice").value = parseFloat(exceliumPrice).toFixed(2);
      }
 
 }
@@ -188,8 +216,10 @@ function unitPriceCalculator(){
     function elevatorCostCalculator(){
         let elevatorCount = document.getElementById('elevatorAmountInput').value;
         let elevatorUnitPrice = document.getElementById("elevatorUnitPrice").value;
-
+        let usdElevatorUnitPrice = usd.format(elevatorUnitPrice);
+                    
         let totalElevatorCost = elevatorCount * elevatorUnitPrice; 
+        document.getElementById("totalElevatorAmount").setAttribute('innerHTML', usdElevatorUnitPrice);
         document.getElementById("totalElevatorAmount").setAttribute('value',totalElevatorCost); 
     }
 // // ELEVATOR AMOUNT
@@ -223,12 +253,18 @@ function installFeeCalculator(){
         totalFee = premiumFee
      }
     else if(document.getElementById("excelium").checked){
-        totalFee = exceliumFee
+        totalFee = exceliumFee 
      }
+<<<<<<< HEAD
      document.getElementById("installFee").setAttribute('value',totalFee);
     //   document.getElementById("installFeesLabel").innerHTML = `${totalFee*100}%`;
     // console.log('install calc Fee ', totalFee)
     document.getElementById("installFee").value = totalFee;
+=======
+      // document.getElementById("installationFees").setAttribute('value',totalFee);
+      document.getElementById("installFee").innerHTML = `${totalFee*100}%`;
+      document.getElementById("installFee").value = totalFee;
+>>>>>>> 61b870e3ed23643a4f199ba7cd3638e3d6656a39
 }
 //INSTALLATION FEES
 
@@ -236,6 +272,7 @@ const totalCostOutput = document.getElementById('totalCost')
 //TOTAL COST
 function totalCostCalculator(){
     let totalElevatorPrice = document.getElementById("totalElevatorAmount").value;
+<<<<<<< HEAD
     // todo: use totalFee instead of totalInstallFees below /done
     totalFee;
     // let totalInstallFees = document.getElementById("installFee").value;
@@ -245,5 +282,17 @@ function totalCostCalculator(){
     // document.getElementById("totalCost").setAttribute('value', totalCost);
     console.log('totalcost', totalCost)
     // console.log('total cost attribute', document.getElementById("totalCost").setAttribute('value',totalCost))
+=======
+    let totalInstallFees = document.getElementById("installFee").value;
+    let totalCost = +totalElevatorPrice * +totalInstallFees;
+    // document.getElementById("totalCostLabel").setAttribute('value',totalCost);
+    document.getElementById("totalElevatorAmount").innerHTML = `$${totalElevatorPrice}`;
+
+    document.getElementById("totalCost").innerHTML = `$${totalCost}`;
+    document.getElementById("totalCost").value = parseFloat(totalCost).toFixed(2);
+>>>>>>> 61b870e3ed23643a4f199ba7cd3638e3d6656a39
 }
 //TOTAL COST
+
+// JS number 2 decimalpoints lookup
+// 
