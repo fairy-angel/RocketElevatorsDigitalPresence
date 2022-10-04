@@ -249,40 +249,58 @@
 <!--RESULTS-->
 <div id="elevatorAmount" class="text-left col-md-2">
 	<label for="elevatorAmountInput">Amount of Elevators</label>
-	<input id="elevatorAmountInput" value=0 type="number" class="form-control" placeholder="000" readonly>
+	<input id="elevatorAmountInput" value='0' type="number" class="form-control" placeholder="000" readonly>
 </div>
 <div id="unitPrice" class="text-left col-md-2">
 	<label for="elevatorUnitPrice"><strong>Elevator Unit Price:</strong></label>
-	<input min="0" id="elevatorUnitPrice" value=0 type="number" class="form-control" placeholder="$000,000.00" readonly>
+	<div class="input-group-prepend">
+		<span class="input-group-text">$</span>
+	  
+	<input min="0" id="elevatorUnitPrice" value='0' type="number" class="form-control" placeholder="$000,000.00" readonly>
+	</div>
 </div>	
 		<form>	
 			<div id="totalElevator" class="text-left col-md-2 ">
 				<label for="totalElevatorAmount">Total Elevator Amount:</label>
-				<input id="totalElevatorAmount" value=0 type="number" class="form-control" placeholder="$000,000.00" readonly>
+				<div class="input-group-prepend">
+					<span class="input-group-text">$</span>
+				  
+				<input id="totalElevatorAmount" value='0' type="number" class="form-control" placeholder="$000,000.00" readonly>
+			</div>
 			</div>
 		</form>
 		
-			<!-- todo change installfee and  total cost to output -->
-			<form>
-				<div>
-				<p id="installFee" class="text-left col-md-2 ">
-					Installation Fees:
-					<label class="form-control" for="installFeesLabel" id="installFeesLabel"></label>
-				</p>
-			</div>
-			</form>
-	
-				<form>
-				<div>
-					<p id="totalCost" class="text-left col-md-2 ">
-						Total Cost:
-						<label class="form-control" for="totalCostLabel" id="totalCostLabel"></label>
-						
-						<!-- <input id="totalCost" value=0 type="number" class="form-control" placeholder="$000,000.00" readonly> -->
-					</p>	
-				</div>
-				</form>
+			  <!-- todo change installfee and  total cost to output -->
+			  <form>
+					
+                <div class="text-left col-md-2" id="installFeesLabel">              
+                    <label for="installFee" >                   
+                        Installation Fees:
+                    </label>
+					<div class="input-group-prepend">
+						<span class="input-group-text">$</span>
+					  
+                    <output id="installFee" min="0" value='0' type="number" class="form-control" placeholder="$000,000.00" readonly>
 					</div>
+            </div>
+            </form>
+
+            <form>
+            <div class="text-left col-md-2 " id="totalCostLabel">   
+                    <label for="totalCost">
+                        Total Cost:
+                    </label>
+					<div class="input-group-prepend">
+						<span class="input-group-text">$</span>
+					  
+                    <output id="totalCost" min="0" value=0 type="number" class="form-control" placeholder="$000,000.00" readonly>                   
+</output>
+</div>
+                        <!-- <input id="totalCost" value=0 type="number" class="form-control" placeholder="$000,000.00" readonly> -->   
+                    
+            </div>
+        </form>
+                 </div>
 <!--RESULTS-->
 		
 <!-- CONTACT -->

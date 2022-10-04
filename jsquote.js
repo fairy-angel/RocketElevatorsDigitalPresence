@@ -159,16 +159,16 @@ function calculate_residential_elevators(){
 
  let usd = new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "USD"
+    currency: "USD",    
  });
 
  //UNIT PRICE BUTTONS
 
 function unitPriceCalculator(){
-    let standardPrice = 7565.00
+    let standardPrice = 7565
     // standardPrice = usd.format(standardPrice)
     let premiumPrice = 12345
-    let exceliumPrice = 15400.00
+    let exceliumPrice = 15400
     if(document.getElementById("standard").checked){
     document.getElementById("elevatorUnitPrice").setAttribute('value',standardPrice); 
     }
@@ -206,13 +206,15 @@ function unitPriceCalculator(){
 // }
 // );
 
+// let installFees = document.getElementById("installFee").value
+// todo: move totalFee hereish /done
+
+let totalFee 
 function installFeeCalculator(){
     let standardFee = 0.10 
     let premiumFee = 0.13 
     let exceliumFee = 0.16
     // let totalElevatorCost = document.getElementById("totalElevatorAmount").value;
-
-    let totalFee 
 
     if(document.getElementById("standard").checked){
        totalFee = standardFee 
@@ -223,17 +225,25 @@ function installFeeCalculator(){
     else if(document.getElementById("excelium").checked){
         totalFee = exceliumFee
      }
-      // document.getElementById("installationFees").setAttribute('value',totalFee);
-      document.getElementById("installFeesLabel").innerHTML = `${totalFee*100}%`;
+     document.getElementById("installFee").setAttribute('value',totalFee);
+    //   document.getElementById("installFeesLabel").innerHTML = `${totalFee*100}%`;
+    // console.log('install calc Fee ', totalFee)
+    document.getElementById("installFee").value = totalFee;
 }
 //INSTALLATION FEES
 
-
+const totalCostOutput = document.getElementById('totalCost')
 //TOTAL COST
 function totalCostCalculator(){
     let totalElevatorPrice = document.getElementById("totalElevatorAmount").value;
-    let totalInstallFees = document.getElementById("installFeesLabel").value;
-    let totalCost = parseFloat(totalElevatorPrice) + parseFloat(totalInstallFees);
-    document.getElementById("totalCostLabel").setAttribute('value',totalCost);
+    // todo: use totalFee instead of totalInstallFees below /done
+    totalFee;
+    // let totalInstallFees = document.getElementById("installFee").value;
+    // let totalCost = parseFloat(totalElevatorPrice) + parseFloat(totalInstallFees);
+    let totalCost = Number(totalElevatorPrice) * Number(totalFee);
+    totalCostOutput.value = totalCost + Number(totalElevatorPrice);
+    // document.getElementById("totalCost").setAttribute('value', totalCost);
+    console.log('totalcost', totalCost)
+    // console.log('total cost attribute', document.getElementById("totalCost").setAttribute('value',totalCost))
 }
 //TOTAL COST
