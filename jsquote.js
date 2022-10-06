@@ -57,13 +57,7 @@ document.getElementById("excelium").addEventListener("click",recalculate)
 
 // EVENT LISTENERS
 
- //USD FORMATTER
  
- let usd = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
- });
-
 //CALCULATORS
 
 function recalculate(){
@@ -175,9 +169,12 @@ function calculate_residential_elevators(){
 
 function unitPriceCalculator(){
     let standardPrice = 7565
-    // standardPrice = usd.format(standardPrice)
+    let usdStandardPrice = usd.format(standardPrice)
     let premiumPrice = 12345
+    let usdPremiumPrice = usd.format(standardPrice)
     let exceliumPrice = 15400
+    let usdExceliumPrice = usd.format(standardPrice)
+
     if(document.getElementById("standard").checked){
     // document.getElementById("elevatorUnitPrice").setAttribute('innerHTML',usdStandardPrice);
     // document.getElementById("elevatorUnitPrice").setAttribute('value', standardPrice);
